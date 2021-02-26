@@ -5,6 +5,7 @@ repositories {
 
 plugins {
   kotlin("jvm") version "1.4.30"
+  id("com.github.johnrengelman.shadow") version "6.1.0"
   id("org.beryx.runtime") version "1.12.1"
 }
 
@@ -16,8 +17,9 @@ dependencies {
 }
 
 application {
-  mainClass.set("AppKt")
   applicationName = "idt"
+  @Suppress("DEPRECATION") // for compatibility with shadowJar
+  mainClassName = "AppKt"
 }
 
 tasks {
